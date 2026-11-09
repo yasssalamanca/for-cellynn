@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>for cellyn :3</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dynamic Fixed Sky & Landscape Background -->
+  <div class="fixed-sky-bg" id="skyBg">
+    <!-- Celestial bodies (Sun & Moon) -->
+    <div class="celestial-container">
+      <div class="sun" id="sun">
+        <div class="sun-glow"></div>
+        <div class="sun-flare"></div>
+      </div>
+      <div class="moon" id="moon">
+        <div class="moon-crater c1"></div>
+        <div class="moon-crater c2"></div>
+        <div class="moon-crater c3"></div>
+        <div class="moon-glow"></div>
+      </div>
+    </div>
+
+    <!-- Canvas for Stars, Fireflies, Petals, and Lanterns -->
+    <canvas id="ambientCanvas"></canvas>
+
+    <!-- Parallax Mountain & Landscape Silhouettes -->
+    <div class="landscape-layer layer-back" id="mountainsBack"></div>
+    <div class="landscape-layer layer-mid" id="mountainsMid"></div>
+    <div class="landscape-layer layer-front" id="mountainsFront"></div>
+    <div class="landscape-layer layer-trees" id="treesFront"></div>
+
+    <!-- Soft Mist/Fog -->
+    <div class="mist-layer" id="mistLayer"></div>
+  </div>
+
+  <!-- Top Time Progress Bar & HUD Indicator -->
+  <header class="hud-header">
+    <div class="time-pill" id="timePill">
+      <span class="time-icon" id="timeIcon">🌅</span>
+      <span class="time-label" id="timeLabel">06:00 • Fajar Pagi</span>
+    </div>
+    
+    <div class="journey-bar-container">
+      <div class="journey-bar" id="journeyProgressBar"></div>
+    </div>
+
+    <div class="quick-nav">
+      <button class="nav-dot active" data-target="pagi" title="Pagi"><span>Pagi</span></button>
+      <button class="nav-dot" data-target="siang" title="Siang"><span>Siang</span></button>
+      <button class="nav-dot" data-target="senja" title="Senja"><span>Senja</span></button>
+      <button class="nav-dot" data-target="malam" title="Malam"><span>Malam</span></button>
+    </div>
+  </header>
+
+  <!-- Floating Music Player Widget -->
+  <div class="music-player-widget" id="musicPlayer">
+    <div class="vinyl-record" id="vinylDisc" title="klik buat putarrr">
+      <div class="vinyl-grooves"></div>
+      <div class="vinyl-center">
+        <i data-lucide="music" class="music-icon"></i>
+      </div>
+    </div>
+
+    <div class="player-info">
+      <div class="song-meta">
+        <span class="song-title">Glue Song</span>
+        <span class="song-artist">beabadoobee</span>
+      </div>
+      <div class="player-controls">
+        <button id="playBtn" class="ctrl-btn" title="Play/Pause">
+          <i data-lucide="play" id="playIcon"></i>
+        </button>
+        <label for="audioFileInput" class="ctrl-btn upload-btn" title="Pilih File MP3 dari HP/Laptop">
+          <i data-lucide="folder-up"></i>
+        </label>
+        <input type="file" id="audioFileInput" accept="audio/*" style="display: none;">
+      </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgAudio" loop preload="auto">
+      <source src="glue-song.mp3" type="audio/mpeg">
+      <source src="YTDown.com_YouTube_Media_mR4wxeZ99Fw_beabadoobee-Glue-Song-Lyrics_009_128k.mp3" type="audio/mpeg">
+      <source src="music.mp3" type="audio/mpeg">
+      <source src="Glue Song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Music Helper Toast Notification -->
+  <div class="music-toast" id="musicToast">
+    <div class="music-toast-content">
+      <i data-lucide="sparkles" class="toast-sparkle"></i>
+      <p>Tekan piringan hitam untuk memutar <strong>Glue Song</strong> 🎵</p>
+      <button class="toast-close" id="toastClose">&times;</button>
+    </div>
+  </div>
+
+  <!-- Main Scrollable Story Canvas -->
+  <main class="story-container">
+
+    <!-- ==================== 1. BAGIAN PAGI (DAWN / MORNING) ==================== -->
+    <section class="story-section section-pagi" id="pagi">
+      <div class="content-wrapper">
+        <div class="phase-badge fade-in-up">
+          <span class="sparkle-symbol">✦</span> hari seninnn lagi ajaa
+        </div>
+        
+        <h1 class="main-title serif-font fade-in-up delay-1">
+          good morningg,<br><span class="highlight-text">cellynn.</span>
+        </h1>
+        
+        <p class="subtitle fade-in-up delay-2">
+           hufftt selamat pagii, someone to talk-!! sekarangg udaa senin ajaa wkwkwk ga kerasa bgt emang. . yupp semangat yaaa cell, semangat pagiii poko e, btw bukaa tuh amplop di bawahh
+        </p>
+
+        <!-- Cara Penyampaian Pagi: Interaktif Amplop Surat Rahasia -->
+        <div class="interactive-envelope-box fade-in-up delay-3">
+          <div class="envelope-card" id="morningEnvelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-seal">
+              <span class="seal-icon">💌</span>
+            </div>
+            <div class="envelope-hint">
+              <i data-lucide="hand-metal"></i> sentuh akuu sentuh akuu
+            </div>
+            
+            <div class="letter-content" id="morningLetter">
+              <span class="letter-badge">morningg envelope</span>
+              <p class="typewriter-text" id="morningQuoteText">
+                "keep the spirit, prettyyy"
+              </p>
+              <div class="letter-author">- ur somwan tu talek</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-cue">
+          <span>scroll pelann pelann ke bawah yaak</span>
+          <i data-lucide="chevron-down" class="bounce-arrow"></i>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 2. BAGIAN SIANG (BRIGHT NOON) ==================== -->
+    <section class="story-section section-siang" id="siang">
+      <div class="content-wrapper">
+        <div class="phase-badge noon-badge">
+          <span class="sparkle-symbol">☀️</span> siangg yg gerahhhh
+        </div>
+
+        <h2 class="main-title serif-font">
+          Ketika Harimu<br><span class="highlight-text-noon">sumpaa jam seginii nih biasanya gerahh bgt</span>
+        </h2>
+
+        <p class="subtitle">
+          siangg harii, hmmm. . . maybe u can rest for a sec, andd then.. kamu bisa lanjutinn lagi ur activitiess
+        </p>
+
+        <!-- Cara Penyampaian Siang: "Interactive Energy Bento & Breathe Wheel" -->
+        <div class="siang-interactive-grid">
+          
+          <!-- Interactive Breathe Widget -->
+          <div class="breathe-card">
+            <div class="breathe-circle-container">
+              <div class="breathe-circle" id="breatheCircle">
+                <span id="breatheText">tarik sissss</span>
+              </div>
+              <div class="breathe-waves"></div>
+            </div>
+            <p class="breathe-instruction">
+              tarik nafasss, hembuskannn (repeat 1000x)
+            </p>
+          </div>
+
+          <!-- Interactive Booster Capsules (Klik untuk memecahkan suntikan semangat) -->
+          <div class="booster-deck">
+            <div class="deck-title">
+              <i data-lucide="zap"></i> choose ur spirit capsule booster! :
+            </div>
+            <div class="capsules-list">
+              <div class="capsule-item" data-message="🌟 semangaat cell!! ">
+                <div class="capsule-icon">💊</div>
+                <div class="capsule-info">
+                  <strong>gatau namain nya apaan</strong>
+                  <small>click to opennn </small>
+                </div>
+              </div>
+              
+              <div class="capsule-item" data-message="semangatt lagii cellynn!  jgn lupa rehidrasi yaa ^^">
+                <div class="capsule-icon">🥤</div>
+                <div class="capsule-info">
+                  <strong>ini apa ya</strong>
+                  <small>bukaa</small>
+                </div>
+              </div>
+
+              <div class="capsule-item" data-message="dear someone to talk, thanks for being my someone to talk yaaaw">
+                <div class="capsule-icon">🪴</div>
+                <div class="capsule-info">
+                  <strong>Ruang Napas</strong>
+                  <small>Klik untuk membuka</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal Pop-up for Capsule -->
+            <div class="capsule-popup" id="capsulePopup">
+              <div class="capsule-popup-body">
+                <i data-lucide="heart" class="popup-heart"></i>
+                <p id="capsulePopupText">bakal nongol disini</p>
+                <button class="popup-close-btn" id="capsulePopupClose">thankss yaaaa</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="scroll-cue">
+          <span>good afternoon!</span>
+          <i data-lucide="chevron-down" class="bounce-arrow"></i>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 3. BAGIAN SENJA (GOLDEN SUNSET) ==================== -->
+    <section class="story-section section-senja" id="senja">
+      <div class="content-wrapper">
+        <div class="phase-badge sunset-badge">
+          <span class="sparkle-symbol">🌇</span> orange vibes, senja.
+        </div>
+
+        <h2 class="main-title serif-font">
+          Langit Berubah Emas,<br><span class="highlight-text-sunset">inii waktu favorit aku sii hehehe, pemandangannya selalu baguss soal e</span>
+        </h2>
+
+        <p class="subtitle">
+          senja adalah lukisan paling tenang yang dilukis oleh alam di atas kanvas langit. Ia tidak meminta siapa pun untuk mengaguminya, tetapi keindahannya selalu berhasil menyita perhatian. Ada kehangatan yang sunyi di setiap sapuan warna jingga dan keunguan, seolah malam sedang membisikkan janji bahwa setelah hari yang melelahkan, selalu ada waktu untuk beristirahat.
+        </p>
+
+        <!-- Cara Penyampaian Senja: "Lampion Harapan / Floating Sunset Lanterns" -->
+        <div class="sunset-interactive-container">
+          <div class="lantern-intro">
+            <p>sentuh salah satuu <strong>lampionn senjaa</strong> di bawah ini untuk menerbangkan bebanmu dan membaca doa penyejuk:</p>
+          </div>
+
+          <div class="lanterns-row">
+            <div class="lantern-box" data-quote="🌅 'senjaa jugaa mengajarkan satu hal yang sangat berharga: bahwa perpisahan tidak selalu berarti kesedihan. Terkadang, sesuatu yang berakhir bisa menyisakan keindahan yang begitu mendalam, memberi kita alasan untuk percaya bahwa esok hari akan selalu membawa harapan yang baru.'">
+              <div class="lantern-visual l1">
+                <div class="lantern-flame"></div>
+              </div>
+              <span class="lantern-label">Lampion Of Gracefull</span>
+            </div>
+
+            <div class="lantern-box" data-quote="🧡 'jangann lupaa buat selaluu bersyukur yaa cell'">
+              <div class="lantern-visual l2">
+                <div class="lantern-flame"></div>
+              </div>
+              <span class="lantern-label">Lampion of Mercy</span>
+            </div>
+
+            <div class="lantern-box" data-quote="🍂 'kamuu hebatt'">
+              <div class="lantern-visual l3">
+                <div class="lantern-flame"></div>
+              </div>
+              <span class="lantern-label">Lampion Penerimaan</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Quote Display for Sunset -->
+          <div class="sunset-quote-display" id="sunsetQuoteCard">
+            <i data-lucide="quote" class="sunset-quote-icon"></i>
+            <p id="sunsetQuoteText">Sentuh salah satu lampion di atas untuk memancarkan cahayanya ✨</p>
+          </div>
+        </div>
+
+        <div class="scroll-cue">
+          <span>Menyelami malam berbintang...</span>
+          <i data-lucide="chevron-down" class="bounce-arrow"></i>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 4. BAGIAN MALAM (STARRY NIGHT) ==================== -->
+    <section class="story-section section-malam" id="malam">
+      <div class="content-wrapper">
+        <div class="phase-badge night-badge">
+          <span class="sparkle-symbol">🌙</span> Malam Hening & Pelukan Bintang
+        </div>
+
+        <h2 class="main-title serif-font">
+          Tidurlah dengan Tenang,<br><span class="highlight-text-night">Kamu Telah Berjuang Hebat.</span>
+        </h2>
+
+        <p class="subtitle">
+          Di bawah semesta yang begitu luas, bintang-bintang bersinar malam ini khusus untuk menemani lelapmu.
+        </p>
+
+        <!-- Cara Penyampaian Malam: Konstelasi Bintang Rahasia & Surat Penutup Kasih -->
+        <div class="night-constellation-box">
+          <div class="constellation-header">
+            <i data-lucide="sparkles"></i>
+            <span>Klik Bintang-Bintang Bercahaya untuk Mengungkapkan Bisikan Malam</span>
+          </div>
+
+          <div class="sky-map" id="skyMap">
+            <!-- 4 Interactive Twinkling Stars in Constellation Grid -->
+            <div class="constellation-stars-grid">
+              <button class="interactive-star s1" data-whisper="⭐ 'Jangan biarkan kekhawatiran tentang esok hari mencuri ketenangan tidurmu malam ini.'" title="Bintang 1">
+                <span class="star-core"></span>
+                <span class="star-pulse"></span>
+                <span class="star-tag">Ketenteraman</span>
+              </button>
+
+              <button class="interactive-star s2" data-whisper="⭐ 'Tutup matamu dan katakan pada dirimu: Aku bangga pada diriku yang selalu berusaha.'" title="Bintang 2">
+                <span class="star-core"></span>
+                <span class="star-pulse"></span>
+                <span class="star-tag">Kebanggaan</span>
+              </button>
+
+              <button class="interactive-star s3" data-whisper="⭐ 'Setiap lelah yang kamu rasakan hari ini akan bermekaran menjadi kebijaksanaan dan kekuatanmu.'" title="Bintang 3">
+                <span class="star-core"></span>
+                <span class="star-pulse"></span>
+                <span class="star-tag">Ketabahan</span>
+              </button>
+
+              <button class="interactive-star s4" data-whisper="⭐ 'I guess I'm stuck forever by the glue, oh, and you... Selamat istirahat, mimpi indah ya.' 🤍" title="Bintang 4">
+                <span class="star-core"></span>
+                <span class="star-pulse"></span>
+                <span class="star-tag">Kasih Sayang</span>
+              </button>
+            </div>
+
+            <div class="whisper-banner" id="whisperBanner">
+              <p id="whisperText">Sentuh bintang di atas untuk mendengarkan bisikan hangatnya 🌌</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Final Special Love Note & Glue Song Lyric Tribute -->
+        <div class="final-heartfelt-card">
+          <div class="card-ornament">
+            <span>✦ ✦ ✦</span>
+          </div>
+          <h3 class="final-card-title serif-font">Surat Cinta Untukmu</h3>
+          <p class="final-lyrics">
+            "You are the glue that holds everything together."
+          </p>
+          <div class="handwritten-message">
+            <p>
+              Terima kasih telah hadir di dunia ini dan menjadi dirimu apa adanya. Kapanpun kamu merasa lelah, ingatlah website ini akan selalu menunggumu di sini—dari fajar yang menyingsing hingga malam yang teduh.
+            </p>
+            <p class="signature">
+              Selalu menyemangatimu,<br>
+              <strong>Dengan segenap hati</strong> 🤍
+            </p>
+          </div>
+
+          <div class="action-buttons">
+            <button class="replay-btn" id="replayJourneyBtn">
+              <i data-lucide="refresh-cw"></i> Ulangi Perjalanan Hari
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
